@@ -2,9 +2,9 @@
 name: PostgreSQL Server # Service Plan Name
 deployment:
   hostedDeployment:
-    AwsAccountId: "your-aws-account-id"
-    AWSBootstrapRoleAccountArn: "arn:aws:iam::your-aws-account-id:role/omnistrate-bootstrap-role"
-tenancyType: OMNISTRATE_CUSTOM_TENANCY
+    AwsAccountId: "339713121445"
+    AWSBootstrapRoleAccountArn: "arn:aws:iam::339713121445:role/omnistrate-bootstrap-role"
+tenancyType: CUSTOM_TENANCY
 features:
   INTERNAL:
     logs: # Omnistrate native

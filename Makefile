@@ -1,9 +1,9 @@
-SERVICE_NAME=service-test
-SERVICE_PLAN=service-test
-MAIN_RESOURCE_NAME=web
+SERVICE_NAME="PostgreSQL Server"
+SERVICE_PLAN="PostgreSQL Server"
+MAIN_RESOURCE_NAME=CNPG
 ENVIRONMENT=Dev
-CLOUD_PROVIDER=azure
-REGION=eastus2
+CLOUD_PROVIDER=aws
+REGION=us-east-1
 
 # Load variables from .env if it exists
 ifneq (,$(wildcard .env))
@@ -26,7 +26,7 @@ login:
 
 .PHONY: release
 release:
-	@omnistrate-ctl build -f spec.yaml --name ${SERVICE_NAME}  --environment ${ENVIRONMENT} --environment-type ${ENVIRONMENT} --release-as-preferred
+	@omnistrate-ctl build -f spec.yaml --spec-type ServicePlanSpec --name ${SERVICE_NAME}  --environment ${ENVIRONMENT} --environment-type ${ENVIRONMENT} --release-as-preferred
 
 .PHONY: create
 create:
@@ -44,10 +44,15 @@ delete-all:
 		omnistrate-ctl instance delete $$id; \
 	done
 
-.PHONY: destroy
-destroy: delete-all-wait
-	@echo "Destroying service: ${SERVICE_NAME}..."
+.PHONY: delete-service
+delete-service:
+	@echo "Deleting service: ${SERVICE_NAME}..."
 	@omnistrate-ctl service delete ${SERVICE_NAME}
+
+.PHONY: destroy
+destroy: 
+	@make delete-all-wait
+	@make delete-service
 
 .PHONY: delete-all-wait
 delete-all-wait:
