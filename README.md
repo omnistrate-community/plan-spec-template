@@ -2,6 +2,12 @@
 
 Example on how to build and deploy a Container Based Service in (Omnistrate)[https://www.omnistrate.com]
 
+## Install Omnistrate CTL
+
+Follow the instructions for [omnistrate-ctl installation](https://ctl.omnistrate.cloud/install/)
+
+Detailed documentation on the commands available can be found in the [omnistrate-ctl manual](https://ctl.omnistrate.cloud/omnistrate-ctl/)
+
 ## Configuration Setup
 
 Before using the make commands, you need to set up the following configuration files:

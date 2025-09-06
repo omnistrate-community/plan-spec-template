@@ -26,7 +26,7 @@ login:
 
 .PHONY: release
 release:
-	@omnistrate-ctl build -f compose.yaml --name ${SERVICE_NAME}  --environment ${ENVIRONMENT} --environment-type ${ENVIRONMENT} --release-as-preferred
+	@omnistrate-ctl build -f spec.yaml --name ${SERVICE_NAME}  --environment ${ENVIRONMENT} --environment-type ${ENVIRONMENT} --release-as-preferred
 
 .PHONY: create
 create:
